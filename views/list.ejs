@@ -1,0 +1,33 @@
+<%- include("header")-%>
+    <div class="box" id="heading">
+    <h1><%=pagelabel%></h1>
+    </div>
+
+    <div class="box">
+
+
+
+       
+    
+        <% for (var i =0; i <newworkstodo.length ;  i++ ) { %>
+            
+            <form action="/delete" method="post" > 
+            <div class="item">
+                
+                <input type="checkbox" onChange="this.form.submit()" name="checkbox"  value="<%=newworkstodo[i]._id%>">
+           <p> <%= newworkstodo[i].name%> </p>
+       
+        </div>
+        <input type="hidden" name="listName" value="<%=pagelabel%>"></input>
+    </form>
+            <% } %>
+       
+    
+
+
+    <form class="item" action="/"  method="post" autocomplete="off">
+        <input type="text" name="newwork" placeholder="newwork" >
+        <button type="submit" name="list" value= "<%=pagelabel%>" >+</button>
+    </form>
+</div>
+<%- include("footer")-%>
